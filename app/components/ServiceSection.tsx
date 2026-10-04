@@ -5,19 +5,25 @@ const SERVICES = [
     index: '01',
     en: 'Retail',
     ja: '小売事業',
-    desc: '国内外の消費者ニーズを捉えた小売ビジネスを展開。マーケットの変化にフレキシブルに対応し、顧客体験の最大化を追求します。',
+    tagline: '消費者の「欲しい」を、ビジネスに変える。',
+    desc: '国内外の市場動向を深く読み解き、小売・EC領域での事業立案から実行まで一気通貫で支援。大手アパレル・食品・生活雑貨など多業種のクライアントと共に、売れる仕組みを構築します。',
+    items: ['ECサイト戦略・構築', 'リアル店舗のブランディング', '商品開発・仕入れ最適化', '販促施策の立案と実行'],
   },
   {
     index: '02',
     en: 'Human Resources',
     ja: '人材事業',
-    desc: '個人の可能性を最大限に引き出す人材マッチング・育成支援。大手企業での経験を活かした独自のアプローチで、本質的なキャリア形成をサポートします。',
+    tagline: '人の可能性を、最大限に引き出す。',
+    desc: '「仕事ができる人」ではなく「本気で生きられる人」を増やすことが私たちのミッション。キャリア支援・採用コンサル・研修設計を通じて、個人と組織の双方が成長できる環境を創ります。',
+    items: ['採用戦略立案・実行支援', 'キャリアコーチング', '次世代リーダー育成プログラム', '組織開発コンサルティング'],
   },
   {
     index: '03',
     en: 'Regional Revitalization',
     ja: '地方創生',
-    desc: '地域固有のリソースと都市部のネットワークを結び付け、持続可能な地方活性化モデルを構築。人と地域が共に成長する仕組みを創出します。',
+    tagline: '地域の誇りを、全国のブランドへ。',
+    desc: '人口減少・産業衰退に直面する地方に、都市部のビジネスノウハウと人的ネットワークを持ち込む。地域固有の資源を磨き上げ、持続可能な経済循環モデルを共に設計します。',
+    items: ['地域ブランド戦略', '特産品のEC・流通支援', '移住・定住促進プロジェクト', '地域事業者の経営支援'],
   },
 ] as const
 
@@ -27,8 +33,8 @@ export function ServiceSection() {
       id="service"
       className="min-h-screen flex flex-col justify-center py-32 px-8 md:px-12"
     >
-      {/* Section label */}
       <div className="max-w-6xl mx-auto w-full">
+        {/* Label */}
         <div className="flex items-center gap-4 mb-16">
           <span className="text-white/25 text-[11px] tracking-[0.5em] uppercase">01</span>
           <div className="w-8 h-px bg-white/20" />
@@ -41,20 +47,44 @@ export function ServiceSection() {
         >
           事業内容
         </h2>
-        <p className="text-white/30 text-sm font-light mb-20 max-w-md leading-relaxed">
-          多岐にわたる事業領域を通じて、新たな価値と機会を創出し続けます。
+        <p className="text-white/35 text-base font-light mb-20 max-w-lg leading-relaxed">
+          3つの事業領域で、個人・企業・地域の課題に向き合う。
         </p>
 
-        {/* Service cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:divide-x md:divide-white/10">
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {SERVICES.map((s) => (
-            <div key={s.index} className="py-10 md:px-10 first:pl-0 last:pr-0 border-t border-white/10 md:border-t-0">
-              <p className="text-white/20 text-xs tracking-[0.4em] uppercase mb-6">{s.index}</p>
-              <p className="text-white/40 text-[11px] tracking-[0.3em] uppercase mb-3">{s.en}</p>
-              <h3 className="text-white text-2xl font-light mb-6" style={{ letterSpacing: '0.05em' }}>
-                {s.ja}
-              </h3>
-              <p className="text-white/35 text-sm leading-relaxed font-light">{s.desc}</p>
+            <div
+              key={s.index}
+              className="rounded flex flex-col gap-5 p-7"
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                backdropFilter: 'blur(6px)',
+                border: '1px solid rgba(255,255,255,0.08)',
+              }}
+            >
+              <div>
+                <span className="text-white/20 text-xs tracking-[0.4em] uppercase">{s.index}</span>
+                <p className="text-white/35 text-[11px] tracking-[0.3em] uppercase mt-3 mb-1">{s.en}</p>
+                <h3 className="text-white text-2xl font-light" style={{ letterSpacing: '0.05em' }}>
+                  {s.ja}
+                </h3>
+              </div>
+
+              <p className="text-white/60 text-sm font-light italic">{s.tagline}</p>
+
+              <p className="text-white/40 text-sm leading-[1.9] font-light border-t border-white/10 pt-5">
+                {s.desc}
+              </p>
+
+              <ul className="flex flex-col gap-2 mt-1">
+                {s.items.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="text-white/25 mt-1.5 shrink-0">—</span>
+                    <span className="text-white/45 text-xs font-light leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

@@ -6,7 +6,12 @@ import { Points, PointMaterial } from '@react-three/drei'
 import * as THREE from 'three'
 import { Header } from './components/Header'
 import { HeroSection } from './components/HeroSection'
+import { PhilosophySection } from './components/PhilosophySection'
+import { CeoMessageSection } from './components/CeoMessageSection'
 import { ServiceSection } from './components/ServiceSection'
+import { WorksSection } from './components/WorksSection'
+import { MembersSection } from './components/MembersSection'
+import { RecruitSection } from './components/RecruitSection'
 import { CompanySection } from './components/CompanySection'
 import { ContactSection } from './components/ContactSection'
 import { Footer } from './components/Footer'
@@ -60,6 +65,19 @@ function ParticleField() {
   )
 }
 
+// ─── Section Divider ──────────────────────────────────────────────────────────
+// padding と max-w を section と同じ構造にすることで centerline を揃える
+
+function Divider() {
+  return (
+    <div className="px-8 md:px-12">
+      <div className="max-w-6xl mx-auto">
+        <div className="h-px bg-white/8" />
+      </div>
+    </div>
+  )
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -75,8 +93,6 @@ export default function Home() {
           <color attach="background" args={['#050508']} />
           <ParticleField />
         </Canvas>
-
-        {/* Radial vignette */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -91,25 +107,39 @@ export default function Home() {
 
       {/* ── Scrollable content ── */}
       <main className="relative z-10">
+        {/* 01 Hero */}
         <HeroSection />
+        <Divider />
 
-        {/* Section divider */}
-        <div className="max-w-6xl mx-auto px-8 md:px-12">
-          <div className="h-px bg-white/8" />
-        </div>
+        {/* 02 Philosophy */}
+        <PhilosophySection />
+        <Divider />
 
+        {/* 03 CEO Message */}
+        <CeoMessageSection />
+        <Divider />
+
+        {/* 04 Service */}
         <ServiceSection />
+        <Divider />
 
-        <div className="max-w-6xl mx-auto px-8 md:px-12">
-          <div className="h-px bg-white/8" />
-        </div>
+        {/* 05 Works */}
+        <WorksSection />
+        <Divider />
 
+        {/* 06 Members */}
+        <MembersSection />
+        <Divider />
+
+        {/* 07 Recruit */}
+        <RecruitSection />
+        <Divider />
+
+        {/* 08 Company */}
         <CompanySection />
+        <Divider />
 
-        <div className="max-w-6xl mx-auto px-8 md:px-12">
-          <div className="h-px bg-white/8" />
-        </div>
-
+        {/* 09 Contact */}
         <ContactSection />
       </main>
 

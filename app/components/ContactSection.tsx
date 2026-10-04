@@ -9,7 +9,7 @@ export function ContactSection() {
       <div className="max-w-6xl mx-auto w-full">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-16">
-          <span className="text-white/25 text-[11px] tracking-[0.5em] uppercase">03</span>
+          <span className="text-white/25 text-[11px] tracking-[0.5em] uppercase">06</span>
           <div className="w-8 h-px bg-white/20" />
           <span className="text-white/25 text-[11px] tracking-[0.5em] uppercase">Contact</span>
         </div>
