@@ -14,15 +14,17 @@
 
 html,
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
   background: #050508;
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  overflow: hidden;
 }
 
-* {
+/* Hide default cursor — replaced by CustomCursor */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  cursor: none !important;
 }
